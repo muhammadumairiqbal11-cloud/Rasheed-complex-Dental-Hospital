@@ -1,0 +1,6 @@
+{
+  "name": "Rasheed Hospital & Dental Complex",
+  "description": "Community-focused hospital and dental complex in Multan, Pakistan, providing affordable and subsidized healthcare, OPD consultation, and dental care.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

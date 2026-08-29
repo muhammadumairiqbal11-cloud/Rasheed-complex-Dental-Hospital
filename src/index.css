@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+}
