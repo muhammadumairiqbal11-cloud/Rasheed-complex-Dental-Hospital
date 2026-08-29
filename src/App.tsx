@@ -12,6 +12,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { PatientGuidelinesModal } from './components/PatientGuidelinesModal';
 import { FullGalleryModal } from './components/FullGalleryModal';
+import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 
 export default function App() {
   const [isGuidelinesOpen, setIsGuidelinesOpen] = useState(false);
@@ -68,6 +69,9 @@ export default function App() {
         isOpen={isGalleryOpen}
         onClose={() => setIsGalleryOpen(false)}
       />
+
+      {/* Floating WhatsApp Contact Button */}
+      <FloatingWhatsAppButton />
     </div>
   );
 }
