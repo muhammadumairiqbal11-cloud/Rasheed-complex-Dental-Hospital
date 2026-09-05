@@ -115,7 +115,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
 
             <a
               href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+             href="https://www.google.com/maps/dir/?api=1&destination=30.2044816,71.5260072"
+target="_blank"
+rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#D91E27] text-white px-5 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-[#b51921] transition-colors rounded-sm shadow-2xs"
             >
               <span>Get Directions</span>
@@ -186,7 +188,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
               </a>
               <a
                 href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+             href="https://www.google.com/maps/dir/?api=1&destination=30.2044816,71.5260072"
+target="_blank"
+rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-[#D91E27] hover:bg-[#b51921] text-white rounded-sm text-xs font-bold uppercase tracking-wider"
               >
                 Directions
