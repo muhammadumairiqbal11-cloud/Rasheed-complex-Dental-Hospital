@@ -68,6 +68,7 @@ export const ContactSection: React.FC = () => {
           </p>
         </div>
 
+        {/* Main Contact Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
           {/* Left Column: Hospital Contact Details */}
@@ -105,22 +106,6 @@ export const ContactSection: React.FC = () => {
 
                   <ExternalLink className="w-3 h-3 ml-0.5 opacity-70" />
                 </a>
-              </div>
-            </div>
-
-            {/* Google Maps */}
-            <div className="bg-white rounded-sm border border-gray-100 shadow-2xs overflow-hidden">
-              <div className="w-full h-[320px] sm:h-[380px] lg:h-[400px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.1422849497967!2d71.52343227436366!3d30.204486210972433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b35caf691ec11%3A0xaa1c6f1597cc1d94!2sRasheed%20Hospital%20%26%20Dental%20Complex!5e0!3m2!1sen!2s!4v1788682892815!5m2!1sen!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="Rasheed Hospital & Dental Complex Location"
-                />
               </div>
             </div>
 
@@ -433,6 +418,23 @@ export const ContactSection: React.FC = () => {
 
           </div>
         </div>
+
+        {/* Full-Width Google Map */}
+        <div className="mt-10 bg-white rounded-sm border border-gray-100 shadow-2xs overflow-hidden">
+          <div className="w-full h-[320px] sm:h-[400px] lg:h-[450px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.1422849497967!2d71.52343227436366!3d30.204486210972433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b35caf691ec11%3A0xaa1c6f1597cc1d94!2sRasheed%20Hospital%20%26%20Dental%20Complex!5e0!3m2!1sen!2s!4v1788682892815!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Rasheed Hospital & Dental Complex Location"
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );
