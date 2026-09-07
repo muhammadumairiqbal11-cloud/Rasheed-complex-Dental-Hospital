@@ -1,3 +1,4 @@
+```tsx
 import React, { useState } from 'react';
 import {
   MapPin,
@@ -22,17 +23,44 @@ export const ContactSection: React.FC = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
+
     if (!formData.name || !formData.phone) return;
 
     setSubmitting(true);
+    setSubmitError('');
 
-    setTimeout(() => {
+    try {
+      const form = e.currentTarget;
+      const formDataToSend = new FormData(form);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
       setSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    } catch (error) {
+      console.error('Netlify form submission error:', error);
+
+      setSubmitting(false);
+      setSubmitError(
+        'We could not send your inquiry right now. Please call the hospital directly at 061-6560560.'
+      );
+    }
   };
 
   // Direct Google Maps directions to Rasheed Hospital & Dental Complex
@@ -250,6 +278,7 @@ export const ContactSection: React.FC = () => {
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
+                    setSubmitError('');
                     setFormData({
                       name: '',
                       phone: '',
@@ -266,7 +295,44 @@ export const ContactSection: React.FC = () => {
 
             ) : (
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                name="opd-dental-inquiry"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
+
+                {/* Required by Netlify for JavaScript-rendered forms */}
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value="opd-dental-inquiry"
+                />
+
+                {/* Spam protection honeypot */}
+                <p
+                  className="absolute overflow-hidden"
+                  style={{
+                    clip: 'rect(0 0 0 0)',
+                    height: '1px',
+                    width: '1px',
+                    margin: '-1px',
+                    padding: 0,
+                    border: 0,
+                  }}
+                >
+                  <label>
+                    Don’t fill this out if you’re human:
+                    <input
+                      name="bot-field"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </label>
+                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
@@ -281,6 +347,7 @@ export const ContactSection: React.FC = () => {
 
                     <input
                       id="patient-name"
+                      name="name"
                       type="text"
                       required
                       placeholder="e.g. Muhammad Ahmad"
@@ -306,6 +373,7 @@ export const ContactSection: React.FC = () => {
 
                     <input
                       id="patient-phone"
+                      name="phone"
                       type="tel"
                       required
                       placeholder="e.g. 0300-1234567"
@@ -333,6 +401,7 @@ export const ContactSection: React.FC = () => {
 
                   <select
                     id="service-select"
+                    name="service"
                     value={formData.service}
                     onChange={(e) =>
                       setFormData({
@@ -379,6 +448,7 @@ export const ContactSection: React.FC = () => {
 
                   <textarea
                     id="patient-message"
+                    name="message"
                     rows={4}
                     placeholder="Briefly describe your medical or dental question..."
                     value={formData.message}
@@ -391,6 +461,15 @@ export const ContactSection: React.FC = () => {
                     className="w-full px-3.5 py-2.5 text-xs bg-[#F9F9F9] border border-gray-200 rounded-sm focus:bg-white focus:outline-hidden focus:border-[#0A3D62] transition-all"
                   />
                 </div>
+
+                {/* Submission Error */}
+                {submitError && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-sm">
+                    <p className="text-xs text-red-700 leading-relaxed">
+                      {submitError}
+                    </p>
+                  </div>
+                )}
 
                 {/* Submit button */}
                 <div className="pt-2 flex items-center justify-between">
@@ -439,3 +518,4 @@ export const ContactSection: React.FC = () => {
     </section>
   );
 };
+```
