@@ -156,8 +156,7 @@ export const ContactSection: React.FC = () => {
                       Landline
                     </span>
 
-                    <a
-                      href={`tel:${HOSPITAL_INFO.phones[0]}`}
+                    <ahref="tel:061-6560560"
                       className="text-sm font-bold text-[#0A3D62] hover:text-[#D91E27]"
                     >
                       {HOSPITAL_INFO.phones[0]}
@@ -165,7 +164,7 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <a
-                    href={`tel:${HOSPITAL_INFO.phones[0]}`}
+                   href="tel:061-6560560"
                     className="p-2 bg-white border border-gray-200 text-[#0A3D62] rounded-xs hover:bg-[#E8F1F8]"
                     title="Call Landline"
                   >
