@@ -1,4 +1,3 @@
-```tsx
 import React, { useState } from 'react';
 import {
   MapPin,
@@ -150,13 +149,15 @@ export const ContactSection: React.FC = () => {
 
               <div className="space-y-2 pt-1">
 
+                {/* Landline */}
                 <div className="flex items-center justify-between p-3 bg-[#F9F9F9] rounded-sm border border-gray-100">
                   <div>
                     <span className="text-[9px] uppercase font-bold tracking-wider text-gray-400 block">
                       Landline
                     </span>
 
-                 <a href="tel:061-6560560"
+                    <a
+                      href="tel:061-6560560"
                       className="text-sm font-bold text-[#0A3D62] hover:text-[#D91E27]"
                     >
                       {HOSPITAL_INFO.phones[0]}
@@ -164,7 +165,7 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <a
-                   href="tel:061-6560560"
+                    href="tel:061-6560560"
                     className="p-2 bg-white border border-gray-200 text-[#0A3D62] rounded-xs hover:bg-[#E8F1F8]"
                     title="Call Landline"
                   >
@@ -172,6 +173,7 @@ export const ContactSection: React.FC = () => {
                   </a>
                 </div>
 
+                {/* Mobile Contact */}
                 <div className="flex items-center justify-between p-3 bg-[#F9F9F9] rounded-sm border border-gray-100">
                   <div>
                     <span className="text-[9px] uppercase font-bold tracking-wider text-gray-400 block">
@@ -179,7 +181,7 @@ export const ContactSection: React.FC = () => {
                     </span>
 
                     <a
-                   href="tel:061-6560560"
+                      href="tel:0328-6560560"
                       className="text-sm font-bold text-[#0A3D62] hover:text-[#D91E27]"
                     >
                       {HOSPITAL_INFO.phones[1]}
@@ -187,7 +189,7 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <a
-                 href="tel:061-6560560"
+                    href="tel:0328-6560560"
                     className="p-2 bg-white border border-gray-200 text-[#0A3D62] rounded-xs hover:bg-[#E8F1F8]"
                     title="Call Mobile"
                   >
@@ -217,7 +219,7 @@ export const ContactSection: React.FC = () => {
                   </span>
 
                   <a
-         href="mailto:rasheedhospitalhr@gmail.com"
+                    href="mailto:rasheedhospitalhr@gmail.com"
                     className="text-[#0A3D62] hover:underline font-medium"
                   >
                     {HOSPITAL_INFO.emails[0]}
@@ -230,7 +232,7 @@ export const ContactSection: React.FC = () => {
                   </span>
 
                   <a
-                 href="mailto:rashidrasheed246@yahoo.com"
+                    href="mailto:rashidrasheed246@yahoo.com"
                     className="text-[#0A3D62] hover:underline font-medium"
                   >
                     {HOSPITAL_INFO.emails[1]}
@@ -517,4 +519,3 @@ export const ContactSection: React.FC = () => {
     </section>
   );
 };
-```
