@@ -217,7 +217,7 @@ export const ContactSection: React.FC = () => {
                   </span>
 
                   <a
-                    href={`mailto:${HOSPITAL_INFO.emails[0]}`}
+         href="mailto:rasheedhospitalhr@gmail.com"
                     className="text-[#0A3D62] hover:underline font-medium"
                   >
                     {HOSPITAL_INFO.emails[0]}
@@ -230,7 +230,7 @@ export const ContactSection: React.FC = () => {
                   </span>
 
                   <a
-                    href={`mailto:${HOSPITAL_INFO.emails[1]}`}
+                 href="mailto:rashidrasheed246@yahoo.com"
                     className="text-[#0A3D62] hover:underline font-medium"
                   >
                     {HOSPITAL_INFO.emails[1]}
