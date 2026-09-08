@@ -179,7 +179,7 @@ export const ContactSection: React.FC = () => {
                     </span>
 
                     <a
-                      href={`tel:${HOSPITAL_INFO.phones[1]}`}
+                   href="tel:061-6560560"
                       className="text-sm font-bold text-[#0A3D62] hover:text-[#D91E27]"
                     >
                       {HOSPITAL_INFO.phones[1]}
