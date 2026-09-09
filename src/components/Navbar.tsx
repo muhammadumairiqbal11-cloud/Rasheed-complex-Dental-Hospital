@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, PhoneCall, Compass, Heart, HelpCircle } from 'lucide-react';
+import {
+  Menu,
+  X,
+  PhoneCall,
+  Compass,
+  Heart,
+  HelpCircle,
+  Moon,
+  Sun
+} from 'lucide-react';
 import { NAV_ITEMS, HOSPITAL_INFO } from '../data/hospitalData';
 import { HospitalLogo } from './HospitalLogo';
 
@@ -8,10 +17,22 @@ interface NavbarProps {
   onOpenGallery?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenGuidelines,
+  onOpenGallery
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('rasheed-theme');
+    const darkMode = savedTheme === 'dark';
+
+    setIsDarkMode(darkMode);
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +60,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = !isDarkMode;
+
+    setIsDarkMode(nextTheme);
+    document.documentElement.classList.toggle('dark', nextTheme);
+    localStorage.setItem(
+      'rasheed-theme',
+      nextTheme ? 'dark' : 'light'
+    );
+
+    if (nextTheme && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate(10);
+      } catch {
+        // Vibration is optional and may not be supported.
+      }
+    }
+  };
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -121,8 +161,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
             })}
           </nav>
 
-          {/* Action Area */}
+          {/* Desktop Action Area */}
           <div className="hidden sm:flex items-center gap-3">
+
+            {/* Theme Toggle */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-toggle inline-flex items-center justify-center w-9 h-9 rounded-sm border border-gray-200 bg-white text-[#0A3D62] hover:bg-[#E8F1F8] hover:border-[#0A3D62]/30 active:scale-95 transition-all duration-200"
+              aria-label={
+                isDarkMode
+                  ? 'Switch to Light Mode'
+                  : 'Switch to Dark Mode'
+              }
+              title={
+                isDarkMode
+                  ? 'Switch to Light Mode'
+                  : 'Switch to Dark Mode'
+              }
+            >
+              {isDarkMode ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </button>
 
             {/* Phone */}
             <a
@@ -145,8 +208,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Header Controls */}
           <div className="flex items-center lg:hidden gap-2">
+
+            {/* Mobile Theme Toggle */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="theme-toggle p-2 rounded-sm border border-gray-200 bg-white text-[#0A3D62] hover:bg-[#E8F1F8] active:scale-95 transition-all duration-200"
+              aria-label={
+                isDarkMode
+                  ? 'Switch to Light Mode'
+                  : 'Switch to Dark Mode'
+              }
+              title={
+                isDarkMode
+                  ? 'Switch to Light Mode'
+                  : 'Switch to Dark Mode'
+              }
+            >
+              {isDarkMode ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </button>
 
             {/* Mobile Call */}
             <a
@@ -157,10 +243,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGuidelines, onOpenGallery 
               <PhoneCall className="w-4 h-4 text-[#D91E27]" />
             </a>
 
+            {/* Menu */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-sm border border-slate-200 focus:outline-hidden"
+              className="p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-sm border border-slate-200 focus:outline-hidden active:scale-95 transition-all"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
