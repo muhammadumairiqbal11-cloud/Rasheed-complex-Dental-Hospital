@@ -4,7 +4,264 @@
   .font-serif {
     font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
   }
+
   .font-display {
     font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* =========================================================
+   RASHEED HOSPITAL — LIGHT / DARK THEME
+   Light Mode remains the original default design.
+   ========================================================= */
+
+html,
+body {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+body {
+  min-width: 320px;
+}
+
+/* Smooth theme transition */
+html.dark,
+html.dark body,
+html.dark #root,
+html.dark section,
+html.dark header,
+html.dark footer,
+html.dark main {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+/* =========================================================
+   DARK MODE — CORE BACKGROUNDS
+   ========================================================= */
+
+html.dark body {
+  background-color: #0b1721;
+  color: #dce7ed;
+}
+
+html.dark #root {
+  background-color: #0b1721;
+}
+
+/* Original white surfaces */
+html.dark .bg-white {
+  background-color: #10212d;
+}
+
+/* Original off-white surfaces */
+html.dark .bg-\[\#FCFCFC\] {
+  background-color: #0b1721;
+}
+
+html.dark .bg-\[\#F9F9F9\] {
+  background-color: #132631;
+}
+
+html.dark .bg-\[\#E8F1F8\] {
+  background-color: #173446;
+}
+
+/* =========================================================
+   DARK MODE — TEXT
+   ========================================================= */
+
+html.dark .text-\[\#0A3D62\] {
+  color: #dcebf5;
+}
+
+html.dark .text-\[\#636E72\] {
+  color: #b6c4cc;
+}
+
+html.dark .text-gray-400 {
+  color: #91a3ad;
+}
+
+html.dark .text-slate-700 {
+  color: #c3d0d7;
+}
+
+html.dark .text-slate-900 {
+  color: #edf4f7;
+}
+
+html.dark .text-slate-200 {
+  color: #d0dde3;
+}
+
+/* Keep white text genuinely white */
+html.dark .text-white {
+  color: #ffffff;
+}
+
+/* =========================================================
+   DARK MODE — BORDERS
+   ========================================================= */
+
+html.dark .border-gray-100 {
+  border-color: #263b48;
+}
+
+html.dark .border-gray-200 {
+  border-color: #344b59;
+}
+
+html.dark .border-gray-100\/80 {
+  border-color: rgba(38, 59, 72, 0.8);
+}
+
+html.dark .border-sky-200 {
+  border-color: #31586d;
+}
+
+html.dark .border-\[\#0A3D62\]\/30 {
+  border-color: rgba(124, 174, 205, 0.38);
+}
+
+/* =========================================================
+   DARK MODE — NAVBAR
+   ========================================================= */
+
+html.dark #main-navigation-header {
+  background-color: rgba(16, 33, 45, 0.98);
+  border-color: #263b48;
+}
+
+html.dark #main-navigation-header .theme-toggle {
+  background-color: #132b39;
+  color: #e2f0f6;
+  border-color: #365260;
+}
+
+html.dark #main-navigation-header .theme-toggle:hover {
+  background-color: #1b3a4b;
+}
+
+html.dark #main-navigation-header .hover\:bg-slate-100:hover {
+  background-color: #1b3442;
+}
+
+html.dark #main-navigation-header .hover\:bg-slate-50:hover {
+  background-color: #19313f;
+}
+
+/* Mobile drawer */
+html.dark #main-navigation-header .shadow-lg {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   DARK MODE — HERO / IMAGE CARDS
+   ========================================================= */
+
+html.dark .shadow-sm,
+html.dark .shadow-2xs,
+html.dark .shadow-xl {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   DARK MODE — BUTTONS / INTERACTIVE STATES
+   ========================================================= */
+
+html.dark .hover\:bg-\[\#0A3D62\]:hover {
+  background-color: #174f73;
+}
+
+html.dark .hover\:bg-\[\#E8F1F8\]:hover {
+  background-color: #1b3b4d;
+}
+
+html.dark .hover\:bg-gray-100:hover {
+  background-color: #1b303d;
+}
+
+/* =========================================================
+   DARK MODE — FORM ELEMENTS
+   ========================================================= */
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #10212d;
+  color: #dce7ed;
+  border-color: #344b59;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #82949e;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #5f9bbd;
+  outline-color: #5f9bbd;
+}
+
+/* =========================================================
+   DARK MODE — LINKS
+   ========================================================= */
+
+html.dark a.text-\[\#0A3D62\] {
+  color: #dcebf5;
+}
+
+html.dark a.text-\[\#0A3D62\]:hover {
+  color: #ff6970;
+}
+
+/* =========================================================
+   DARK MODE — MOBILE PRESS FEEDBACK
+   ========================================================= */
+
+.theme-toggle {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+/* =========================================================
+   DARK MODE — TOP BAR
+   ========================================================= */
+
+html.dark #top-info-bar {
+  background-color: #082c45;
+  border-color: #17445d;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  html.dark,
+  html.dark body,
+  html.dark #root,
+  html.dark section,
+  html.dark header,
+  html.dark footer,
+  html.dark main {
+    transition: none !important;
+  }
+
+  .theme-toggle {
+    transition: none !important;
   }
 }
