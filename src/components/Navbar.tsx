@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Menu,
-  X,
-  PhoneCall,
-  Compass,
-  Heart,
-  HelpCircle,
-  Moon,
-  Sun
-} from 'lucide-react';
+import { Menu, X, PhoneCall, Compass, Heart, HelpCircle, Moon, Sun } from 'lucide-react';
 import { NAV_ITEMS, HOSPITAL_INFO } from '../data/hospitalData';
 import { HospitalLogo } from './HospitalLogo';
 
@@ -62,20 +53,19 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = !isDarkMode;
+    const nextTheme = isDarkMode ? 'light' : 'dark';
+    const nextDarkMode = nextTheme === 'dark';
 
-    setIsDarkMode(nextTheme);
-    document.documentElement.classList.toggle('dark', nextTheme);
-    localStorage.setItem(
-      'rasheed-theme',
-      nextTheme ? 'dark' : 'light'
-    );
+    setIsDarkMode(nextDarkMode);
+    localStorage.setItem('rasheed-theme', nextTheme);
 
-    if (nextTheme && 'vibrate' in navigator) {
+    document.documentElement.classList.toggle('dark', nextDarkMode);
+
+    if (nextDarkMode && 'vibrate' in navigator) {
       try {
         navigator.vibrate(10);
       } catch {
-        // Vibration is optional and may not be supported.
+        // Vibration is optional.
       }
     }
   };
