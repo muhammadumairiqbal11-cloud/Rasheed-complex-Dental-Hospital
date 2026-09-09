@@ -61,7 +61,7 @@ export const HeroSection: React.FC = () => {
               </a>
 
               <a
-               href="https://www.google.com/maps/dir/?api=1&destination=30.2044816,71.5260072"
+           href="https://www.google.com/maps/dir/?api=1&destination=30.2044816,71.5260072"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#D91E27] text-white px-6 py-2.5 text-[11px] font-bold uppercase tracking-wider hover:bg-[#b51921] transition-all rounded-sm shadow-2xs"
