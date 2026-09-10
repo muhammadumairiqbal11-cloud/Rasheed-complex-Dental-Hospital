@@ -7,11 +7,11 @@
    ========================================================= */
 
 html {
-  color-scheme: light;
+  color-scheme: only light;
 }
 
 html.dark {
-  color-scheme: dark;
+  color-scheme: only dark;
 }
 
 @layer utilities {
