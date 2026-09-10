@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* =========================================================
+   RASHEED HOSPITAL — BROWSER COLOR SCHEME
+   Prevent mobile browsers from automatically darkening
+   the Light Mode design.
+   ========================================================= */
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 @layer utilities {
   .font-serif {
     font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
